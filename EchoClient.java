@@ -14,8 +14,8 @@ public final class EchoClient {
             
             InputStream is = socket.getInputStream();
             InputStreamReader isr = new InputStreamReader(is, "UTF-8");
-            BufferedReader bur = new BufferedReader(isr);
-            System.out.println(bur.readLine());
+            BufferedReader br = new BufferedReader(isr);
+            System.out.println(br.readLine());
             InputStreamReader in = new InputStreamReader(System.in);
             BufferedReader brin = new BufferedReader(in);
             OutputStream out = socket.getOutputStream();
@@ -25,7 +25,7 @@ public final class EchoClient {
             while(!"exit".equals(user)){
                 user = brin.readLine();
                 output.println(user);
-                System.out.println(bur.readLine());
+                System.out.println(br.readLine());
                 System.out.print("Client> "); 
             }
             
