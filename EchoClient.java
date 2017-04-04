@@ -8,10 +8,20 @@ public final class EchoClient {
 
     public static void main(String[] args) throws Exception {
         try (Socket socket = new Socket("localhost", 22222)) {
+            String user;
+            
             InputStream is = socket.getInputStream();
             InputStreamReader isr = new InputStreamReader(is, "UTF-8");
             BufferedReader br = new BufferedReader(isr);
             System.out.println(br.readLine());
+            InputStreamReader in = new InputStreamReader(System.in);
+            BufferedReader brin = new BufferedReader(in);
+            
+            while((user = brin.readLine()) != "exit"){
+                System.out.println("Server> " + br.readLine());
+            }
+            
+            
         }
     }
 }
